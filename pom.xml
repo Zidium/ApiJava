@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.zidium</groupId>
     <artifactId>apijava</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
     <name>zidium4java</name>
     <description>Zidium Api for Java</description>
@@ -12,7 +12,7 @@
         <connection>scm:git:git://github.com/Zidium/ApiJava.git</connection>
         <developerConnection>scm:git:git@github.com:Zidium/ApiJava.git</developerConnection>
         <url>https://github.com/Zidium/ApiJava</url>
-        <tag>HEAD</tag>
+        <tag>v.1.0.0</tag>
     </scm>
     <distributionManagement>
         <snapshotRepository>
@@ -112,7 +112,8 @@
                     <localCheckout>true</localCheckout>
                     <pushChanges>false</pushChanges>
                     <mavenExecutorId>forked-path</mavenExecutorId>
-                    <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <arguments>-Dmaven.test.skipTests=true -Dmaven.test.skip=true -Dgpg.passphrase=${gpg.passphrase}</arguments>
                 </configuration>
                 <dependencies>
                     <dependency>
