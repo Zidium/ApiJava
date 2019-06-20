@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.zidium</groupId>
     <artifactId>apijava</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
     <name>zidium4java</name>
     <description>Zidium Api for Java</description>
@@ -27,7 +27,7 @@
         <connection>scm:git:git://github.com/Zidium/ApiJava.git</connection>
         <developerConnection>scm:git:git@github.com:Zidium/ApiJava.git</developerConnection>
         <url>https://github.com/Zidium/ApiJava</url>
-        <tag>HEAD</tag>
+        <tag>v1.0.2</tag>
     </scm>
     <distributionManagement>
         <snapshotRepository>
