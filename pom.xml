@@ -8,6 +8,21 @@
     <name>zidium4java</name>
     <description>Zidium Api for Java</description>
     <url>http://zidium.net</url>
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE</name>
+            <url>https://github.com/Zidium/ApiJava/blob/master/LICENSE</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <developers>
+        <developer>
+            <id>owner</id>
+            <name>Zidium</name>
+            <email>info@zidium.net</email>
+            <timezone>UTC+3</timezone>
+        </developer>
+    </developers>
     <scm>
         <connection>scm:git:git://github.com/Zidium/ApiJava.git</connection>
         <developerConnection>scm:git:git@github.com:Zidium/ApiJava.git</developerConnection>
