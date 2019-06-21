@@ -1,103 +1,103 @@
 # Zidium Api for Java
-Это официальное Api на Java для системы мониторинга Zidium
+Р­С‚Рѕ РѕС„РёС†РёР°Р»СЊРЅРѕРµ Api РЅР° Java РґР»СЏ СЃРёСЃС‚РµРјС‹ РјРѕРЅРёС‚РѕСЂРёРЅРіР° Zidium
 
-## Подключение
-Добавьте раздел в ваш pom.xml:
+## РџРѕРґРєР»СЋС‡РµРЅРёРµ
+Р”РѕР±Р°РІСЊС‚Рµ СЂР°Р·РґРµР» РІ РІР°С€ pom.xml:
 
-<dependency>
-    <groupId>net.zidium</groupId>
-    <artifactId>apijava</artifactId>
-    <version>1.0.3</version>
-</dependency>
+    <dependency>
+        <groupId>net.zidium</groupId>
+        <artifactId>apijava</artifactId>
+        <version>1.0.3</version>
+    </dependency>
 
-Используйте самую новую доступную версию.
+РСЃРїРѕР»СЊР·СѓР№С‚Рµ СЃР°РјСѓСЋ РЅРѕРІСѓСЋ РґРѕСЃС‚СѓРїРЅСѓСЋ РІРµСЂСЃРёСЋ.
 
-## Настройка
-Для хранения настроек рекомендуем создать файл zidium.properties в папке с выполняемым jar-файлом.
+## РќР°СЃС‚СЂРѕР№РєР°
+Р”Р»СЏ С…СЂР°РЅРµРЅРёСЏ РЅР°СЃС‚СЂРѕРµРє СЂРµРєРѕРјРµРЅРґСѓРµРј СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» zidium.properties РІ РїР°РїРєРµ СЃ РІС‹РїРѕР»РЅСЏРµРјС‹Рј jar-С„Р°Р№Р»РѕРј.
 
-В файле zidium.properties укажите название вашего аккаунта и секретный ключ из ЛК:
+Р’ С„Р°Р№Р»Рµ zidium.properties СѓРєР°Р¶РёС‚Рµ РЅР°Р·РІР°РЅРёРµ РІР°С€РµРіРѕ Р°РєРєР°СѓРЅС‚Р° Рё СЃРµРєСЂРµС‚РЅС‹Р№ РєР»СЋС‡ РёР· Р›Рљ:
 
-account=MYACCOUNT
-secretKey=7031880B-CCCD-4A05-A4DE-6AFADCD7BE6F
+    account=MYACCOUNT
+    secretKey=7031880B-CCCD-4A05-A4DE-6AFADCD7BE6F
 
-Если вы используете развёрнутый у вас Zidium, а не облачный сервис, то укажите также адрес службы Api:
+Р•СЃР»Рё РІС‹ РёСЃРїРѕР»СЊР·СѓРµС‚Рµ СЂР°Р·РІС‘СЂРЅСѓС‚С‹Р№ Сѓ РІР°СЃ Zidium, Р° РЅРµ РѕР±Р»Р°С‡РЅС‹Р№ СЃРµСЂРІРёСЃ, С‚Рѕ СѓРєР°Р¶РёС‚Рµ С‚Р°РєР¶Рµ Р°РґСЂРµСЃ СЃР»СѓР¶Р±С‹ Api:
 
-url=http://localhost:61000/
+    url=http://localhost:61000/
 
-## Использование
+## РСЃРїРѕР»СЊР·РѕРІР°РЅРёРµ
 
-### Получение экземпляра клиента
+### РџРѕР»СѓС‡РµРЅРёРµ СЌРєР·РµРјРїР»СЏСЂР° РєР»РёРµРЅС‚Р°
 
-Получение клиента с загрузкой настроек из zidium.properties:
+РџРѕР»СѓС‡РµРЅРёРµ РєР»РёРµРЅС‚Р° СЃ Р·Р°РіСЂСѓР·РєРѕР№ РЅР°СЃС‚СЂРѕРµРє РёР· zidium.properties:
 
-IZidiumClient client = ZidiumClient.getDefault();
+    IZidiumClient client = ZidiumClient.getDefault();
 
-Получение клиента с явным указанием настроек:
+РџРѕР»СѓС‡РµРЅРёРµ РєР»РёРµРЅС‚Р° СЃ СЏРІРЅС‹Рј СѓРєР°Р·Р°РЅРёРµРј РЅР°СЃС‚СЂРѕРµРє:
 
-IZidiumClient client = new ZidiumClient("MYACCOUNT", "7031880B-CCCD-4A05-A4DE-6AFADCD7BE6F", "http://localhost:61000/");
+    IZidiumClient client = new ZidiumClient("MYACCOUNT", "7031880B-CCCD-4A05-A4DE-6AFADCD7BE6F", "http://localhost:61000/");
 
-Получение клиента с загрузкой настроек из указанного файла:
+РџРѕР»СѓС‡РµРЅРёРµ РєР»РёРµРЅС‚Р° СЃ Р·Р°РіСЂСѓР·РєРѕР№ РЅР°СЃС‚СЂРѕРµРє РёР· СѓРєР°Р·Р°РЅРЅРѕРіРѕ С„Р°Р№Р»Р°:
 
-IZidiumClient client = ZidiumClient.loadFromConfig("zidium.properties");
+    IZidiumClient client = ZidiumClient.loadFromConfig("zidium.properties");
 
-### Получение компонента
+### РџРѕР»СѓС‡РµРЅРёРµ РєРѕРјРїРѕРЅРµРЅС‚Р°
 
-Сначала получите корневой компонент:
+РЎРЅР°С‡Р°Р»Р° РїРѕР»СѓС‡РёС‚Рµ РєРѕСЂРЅРµРІРѕР№ РєРѕРјРїРѕРЅРµРЅС‚:
 
-IComponentControl root = client.getRootComponentControl();
+    IComponentControl root = client.getRootComponentControl();
 
-В нём создайте дочерний компонент:
+Р’ РЅС‘Рј СЃРѕР·РґР°Р№С‚Рµ РґРѕС‡РµСЂРЅРёР№ РєРѕРјРїРѕРЅРµРЅС‚:
 
-IComponentControl component = root.getOrCreateChild("MyComponent");
+    IComponentControl component = root.getOrCreateChild("MyComponent");
 
-Можно создавать компоненты любого уровня вложенности:
+РњРѕР¶РЅРѕ СЃРѕР·РґР°РІР°С‚СЊ РєРѕРјРїРѕРЅРµРЅС‚С‹ Р»СЋР±РѕРіРѕ СѓСЂРѕРІРЅСЏ РІР»РѕР¶РµРЅРЅРѕСЃС‚Рё:
 
-IComponentControl childComponent = component.getOrCreateChild("MyChildComponent");
+    IComponentControl childComponent = component.getOrCreateChild("MyChildComponent");
 
-Уникальность имени компонента проверяется в рамках родителя.
+РЈРЅРёРєР°Р»СЊРЅРѕСЃС‚СЊ РёРјРµРЅРё РєРѕРјРїРѕРЅРµРЅС‚Р° РїСЂРѕРІРµСЂСЏРµС‚СЃСЏ РІ СЂР°РјРєР°С… СЂРѕРґРёС‚РµР»СЏ.
 
-Можно также получить компонент по Id, если он известен заранее:
+РњРѕР¶РЅРѕ С‚Р°РєР¶Рµ РїРѕР»СѓС‡РёС‚СЊ РєРѕРјРїРѕРЅРµРЅС‚ РїРѕ Id, РµСЃР»Рё РѕРЅ РёР·РІРµСЃС‚РµРЅ Р·Р°СЂР°РЅРµРµ:
 
-IComponentControl component = client.getComponentControl("...");
+    IComponentControl component = client.getComponentControl("...");
 
-### Отправка проверки
+### РћС‚РїСЂР°РІРєР° РїСЂРѕРІРµСЂРєРё
 
-Получите экземпляр проверки:
+РџРѕР»СѓС‡РёС‚Рµ СЌРєР·РµРјРїР»СЏСЂ РїСЂРѕРІРµСЂРєРё:
 
-IUnitTestControl unitTest = component.getOrCreateUnitTest("Проверка", "Тип проверки");
+    IUnitTestControl unitTest = component.getOrCreateUnitTest("РџСЂРѕРІРµСЂРєР°", "РўРёРї РїСЂРѕРІРµСЂРєРё");
 
-Отправьте результат:
+РћС‚РїСЂР°РІСЊС‚Рµ СЂРµР·СѓР»СЊС‚Р°С‚:
 
-unitTest.SendResult(UnitTestResult.Success);
+    unitTest.SendResult(UnitTestResult.Success);
 
-### Отправка метрики
+### РћС‚РїСЂР°РІРєР° РјРµС‚СЂРёРєРё
 
-component.sendMetric("Метрика", 100);
+    component.sendMetric("РњРµС‚СЂРёРєР°", 100);
 
-### Отправка события
+### РћС‚РїСЂР°РІРєР° СЃРѕР±С‹С‚РёСЏ
 
-Отправка события с ошибкой:
+РћС‚РїСЂР°РІРєР° СЃРѕР±С‹С‚РёСЏ СЃ РѕС€РёР±РєРѕР№:
 
-client.addError("Текст ошибки", exception);
+    client.addError("РўРµРєСЃС‚ РѕС€РёР±РєРё", exception);
 
-Отправка произвольного события:
+РћС‚РїСЂР°РІРєР° РїСЂРѕРёР·РІРѕР»СЊРЅРѕРіРѕ СЃРѕР±С‹С‚РёСЏ:
 
-ZidiumEvent eventData = new ZidiumEvent();
-eventData.setMessage("Текст события");
-eventData.setTypeDisplayName("Тип события");
-eventData.setImportance(EventImportance.SUCCESS);
-component.addEvent(eventData);
+    ZidiumEvent eventData = new ZidiumEvent();
+    eventData.setMessage("РўРµРєСЃС‚ СЃРѕР±С‹С‚РёСЏ");
+    eventData.setTypeDisplayName("РўРёРї СЃРѕР±С‹С‚РёСЏ");
+    eventData.setImportance(EventImportance.SUCCESS);
+    component.addEvent(eventData);
 
-### Запись в лог
+### Р—Р°РїРёСЃСЊ РІ Р»РѕРі
 
-ILog log = component.getLog();
-log.info("Текст лога");
+    ILog log = component.getLog();
+    log.info("РўРµРєСЃС‚ Р»РѕРіР°");
 
-## Самостоятельная сборка
+## РЎР°РјРѕСЃС‚РѕСЏС‚РµР»СЊРЅР°СЏ СЃР±РѕСЂРєР°
 
-Для сборки потребуется NetBeans IDE 8.2 или выше.
-Проект использует Maven версии 3.0.5.
+Р”Р»СЏ СЃР±РѕСЂРєРё РїРѕС‚СЂРµР±СѓРµС‚СЃСЏ NetBeans IDE 8.2 РёР»Рё РІС‹С€Рµ.
+РџСЂРѕРµРєС‚ РёСЃРїРѕР»СЊР·СѓРµС‚ Maven РІРµСЂСЃРёРё 3.0.5.
 
-### Выполнение юнит-тестов
+### Р’С‹РїРѕР»РЅРµРЅРёРµ СЋРЅРёС‚-С‚РµСЃС‚РѕРІ
 
-Перед запуском тестов нужно в файле src\test\resources\zidium.properties указать параметры вашего тестового аккаунта.
+РџРµСЂРµРґ Р·Р°РїСѓСЃРєРѕРј С‚РµСЃС‚РѕРІ РЅСѓР¶РЅРѕ РІ С„Р°Р№Р»Рµ src\test\resources\zidium.properties СѓРєР°Р·Р°С‚СЊ РїР°СЂР°РјРµС‚СЂС‹ РІР°С€РµРіРѕ С‚РµСЃС‚РѕРІРѕРіРѕ Р°РєРєР°СѓРЅС‚Р°.
