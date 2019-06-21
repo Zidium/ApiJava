@@ -7,7 +7,7 @@ import zidium.helpers.DateHelper;
 import zidium.helpers.ExceptionHelper;
 import zidium.helpers.GuidHelper;
 import zidium.client.IZidiumClient;
-import zidium.client.ZidiumTestHelper;
+import zidium.helpers.ZidiumTestHelper;
 import zidium.dto.ExtentionPropertyDto;
 import zidium.dto.getEvents.EventDto;
 import zidium.dto.getEvents.GetEventsRequestData;

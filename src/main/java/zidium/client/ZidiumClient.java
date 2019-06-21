@@ -12,11 +12,13 @@ import zidium.components.FakeComponentControl;
 import zidium.components.ComponentControlWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import zidium.components.GetOrCreateChildComponentIdProvider;
 import zidium.helpers.PropertiesHelper;
 import zidium.components.GetOrCreateRootComponentIdProvider;
 import zidium.components.IComponentIdProvider;
 import zidium.components.ValidateComponentIdProvider;
 import zidium.dto.Token;
+import zidium.dto.getOrAddComponent.GetOrAddComponentRequestData;
 import zidium.events.ExceptionToEventConverter;
 import zidium.logs.ILogManager;
 import zidium.unitTestTypes.GetOrCreateUnitTestTypeIdProvider;
@@ -38,11 +40,14 @@ public class ZidiumClient implements IZidiumClient {
     private IComponentControl _rootComponentControl;
 
     public ZidiumClient(String account, String secretKey, String apiUrl) {
-        if (apiUrl == null) {
-            apiUrl = "api.zidium.net/1.0/";
+        String url;
+        
+        if (apiUrl != null) {
+            url = apiUrl;
+        } else {
+            url = "http://" + account + ".api.zidium.net/1.0/";
         }
-
-        String url = "http://" + account + "." + apiUrl;
+        
         IZidiumWebService webService = new ZidiumWebService(url);
         Token token = new Token();
         token.Account = account;
@@ -138,6 +143,12 @@ public class ZidiumClient implements IZidiumClient {
         }
         return _rootComponentControl;
     }
+    
+    @Override
+    public IComponentControl getOrCreateComponentControl(GetOrAddComponentRequestData data) {
+        GetOrCreateChildComponentIdProvider provider = new GetOrCreateChildComponentIdProvider(this, data);
+        return getComponentControl(provider);
+    }
 
     @Override
     public IComponentControl setDefaultComponentControl(IComponentIdProvider provider) {
@@ -155,4 +166,5 @@ public class ZidiumClient implements IZidiumClient {
     public IUnitTestTypeControl getOrCreateUnitTestType(String name) {
         return getUnitTestType(new GetOrCreateUnitTestTypeIdProvider(this, name));
     }
+    
 }

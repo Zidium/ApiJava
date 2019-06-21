@@ -1,6 +1,7 @@
-package zidium.client;
+package zidium.helpers;
 
-import zidium.helpers.GuidHelper;
+import zidium.client.IZidiumClient;
+import zidium.client.ZidiumClient;
 import zidium.components.IComponentControl;
 import zidium.dto.ExtentionPropertyDto;
 

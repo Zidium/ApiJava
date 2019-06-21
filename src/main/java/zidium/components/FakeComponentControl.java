@@ -100,4 +100,25 @@ public class FakeComponentControl implements IComponentControl {
         response.ErrorMessage = "fake control response";
         return response;
     }
+
+    @Override
+    public IUnitTestControl getOrCreateUnitTest(String name, String type) {
+        return new FakeUnitTestControl();
+    }
+
+    @Override
+    public SendMetricResponse sendMetric(String name, Double value) {
+        SendMetricResponse response = new SendMetricResponse();
+        response.Code = 15;
+        response.ErrorMessage = "fake control response";
+        return response;
+    }
+
+    @Override
+    public SendMetricResponse sendMetric(String name, Double value, Integer ActualIntervalSecs) {
+        SendMetricResponse response = new SendMetricResponse();
+        response.Code = 15;
+        response.ErrorMessage = "fake control response";
+        return response;
+    }
 }

@@ -3,7 +3,7 @@ package zidium.unitTests;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import zidium.client.IZidiumClient;
-import zidium.client.ZidiumTestHelper;
+import zidium.helpers.ZidiumTestHelper;
 import zidium.components.IComponentControl;
 import zidium.dto.sendUnitTestResult.SendUnitTestResultResponse;
 import zidium.unitTestTypes.FakeUnitTestTypeControl;

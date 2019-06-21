@@ -94,12 +94,33 @@ public class ComponentControl implements IComponentControl {
     }
 
     @Override
+    public IUnitTestControl getOrCreateUnitTest(String name, String type) {
+        // данный метод должен отрабатывать только wrapper
+        // реальный компонент не должен его выполнять
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
     public SendMetricResponse sendMetric(SendMetricRequestData data) {
         if (data != null) {
             data.ComponentId = _id;
         }
         IZidiumTransport transport = _client.getTransport();
         return transport.sendMetric(data);
+    }
+
+    @Override
+    public SendMetricResponse sendMetric(String name, Double value) {
+        return sendMetric(name, value, null);
+    }
+
+    @Override
+    public SendMetricResponse sendMetric(String name, Double value, Integer actualIntervalSecs) {
+        SendMetricRequestData data = new SendMetricRequestData();
+        data.Name = name;
+        data.Value = value;
+        data.ActualIntervalSecs = actualIntervalSecs;
+        return sendMetric(data);
     }
 
     @Override
@@ -112,8 +133,9 @@ public class ComponentControl implements IComponentControl {
         requestData.TypeId = data.TypeId;
         requestData.Version = data.Version;
         requestData.Properties = data.Properties;
-        
+
         IZidiumTransport transport = _client.getTransport();
         return transport.updateComponent(requestData);
     }
+
 }

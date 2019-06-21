@@ -2,7 +2,6 @@ package zidium.http;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
-import java.util.Map;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -93,7 +92,7 @@ public class ZHttpClientTest {
     @Test
     public void testPostBytes_String_byteArr() throws Exception {
         System.out.println("postBytes");
-        String url = "http://recursion.api.zidium.net/1.0/GetServerTime";
+        String url = "http://test.api.zidium.net/1.0/GetServerTime";
         byte[] data = new byte[]{ 0x00, 0x00, 0x00};
         ZHttpClient instance = new ZHttpClient();
         byte[] result = instance.postBytes(url, data);

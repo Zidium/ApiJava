@@ -8,7 +8,7 @@ import zidium.helpers.DateHelper;
 import zidium.helpers.ExceptionHelper;
 import zidium.helpers.GuidHelper;
 import zidium.client.IZidiumClient;
-import zidium.client.ZidiumTestHelper;
+import zidium.helpers.ZidiumTestHelper;
 import zidium.components.IComponentControl;
 import zidium.components.IComponentIdProvider;
 import zidium.dto.ExtentionPropertyDto;

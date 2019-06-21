@@ -126,9 +126,27 @@ public class ComponentControlWrapper implements IComponentControl {
     }
 
     @Override
+    public IUnitTestControl getOrCreateUnitTest(String name, String type) {
+        IUnitTestTypeControl typeControl = _client.getOrCreateUnitTestType(type);
+        return getOrCreateUnitTest(name, typeControl);
+    }
+
+    @Override
     public SendMetricResponse sendMetric(SendMetricRequestData data) {
         IComponentControl control = getComponentControl();
         return control.sendMetric(data);
+    }
+
+    @Override
+    public SendMetricResponse sendMetric(String name, Double value) {
+        IComponentControl control = getComponentControl();
+        return control.sendMetric(name, value);
+    }
+
+    @Override
+    public SendMetricResponse sendMetric(String name, Double value, Integer actualIntervalSecs) {
+        IComponentControl control = getComponentControl();
+        return control.sendMetric(name, value, actualIntervalSecs);
     }
 
     @Override

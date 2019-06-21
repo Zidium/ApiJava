@@ -5,6 +5,7 @@ import zidium.events.IExceptionToEventConverter;
 import zidium.events.IEventManager;
 import zidium.components.IComponentControl;
 import zidium.components.IComponentIdProvider;
+import zidium.dto.getOrAddComponent.GetOrAddComponentRequestData;
 import zidium.logs.ILogManager;
 import zidium.unitTestTypes.IUnitTestTypeControl;
 import zidium.unitTestTypes.IUnitTestTypeIdProvider;
@@ -18,6 +19,7 @@ public interface IZidiumClient {
     public IComponentControl getRootComponentControl();
     public IComponentControl getComponentControl(IComponentIdProvider provider);
     public IComponentControl getComponentControl(String id);
+    public IComponentControl getOrCreateComponentControl(GetOrAddComponentRequestData data);
     
     public IUnitTestTypeControl getUnitTestType(IUnitTestTypeIdProvider provider);
     public IUnitTestTypeControl getOrCreateUnitTestType(String name);
