@@ -40,6 +40,12 @@
 
     IZidiumClient client = ZidiumClient.loadFromConfig("zidium.properties");
 
+**Важно!**
+Перед завершением приложения нужно выполнить запись всех закешированных данных:
+
+    client.getEventManager().flush();
+    client.getLogManager().flush();
+
 ### Получение компонента
 
 Сначала получите корневой компонент:
