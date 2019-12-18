@@ -45,7 +45,7 @@ public class ZidiumClient implements IZidiumClient {
         if (apiUrl != null) {
             url = apiUrl;
         } else {
-            url = "http://" + account + ".api.zidium.net/1.0/";
+            url = "https://" + account + ".api.zidium.net/1.0/";
         }
         
         IZidiumWebService webService = new ZidiumWebService(url);

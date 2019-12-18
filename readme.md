@@ -7,7 +7,7 @@
     <dependency>
         <groupId>net.zidium</groupId>
         <artifactId>apijava</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.5</version>
     </dependency>
 
 Используйте самую новую доступную версию.
@@ -22,7 +22,7 @@
 
 Если вы используете развёрнутый у вас Zidium, а не облачный сервис, то укажите также адрес службы Api:
 
-    url=http://localhost:61000/
+    url=https://localhost:60001/
 
 ## Использование
 
@@ -34,7 +34,7 @@
 
 Получение клиента с явным указанием настроек:
 
-    IZidiumClient client = new ZidiumClient("MYACCOUNT", "7031880B-CCCD-4A05-A4DE-6AFADCD7BE6F", "http://localhost:61000/");
+    IZidiumClient client = new ZidiumClient("MYACCOUNT", "7031880B-CCCD-4A05-A4DE-6AFADCD7BE6F", "https://localhost:60001/");
 
 Получение клиента с загрузкой настроек из указанного файла:
 
